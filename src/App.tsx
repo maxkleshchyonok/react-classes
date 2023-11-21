@@ -1,20 +1,18 @@
-import { useState } from 'react'
-import './style.scss'
+import { Routes, Route } from 'react-router-dom'
+import Main from './app/main/Main'
+import Characters from './app/characters/Characters'
+import Locations from './app/locations/Locations'
+import Navigation from './components/navigation/Navigation'
 
 export const App = () => {
-  const [state, setState] = useState(0)
-  //console.log(state)
-
   return (
     <>
-      <h1 className="title">Title</h1>
-      <button
-        onClick={() => {
-          setState(state + 1)
-        }}
-      >
-        Click
-      </button>
+      <Navigation />
+      <Routes>
+        <Route path="/" Component={Main} />
+        <Route path="characters" Component={Characters} />
+        <Route path="locations" Component={Locations} />
+      </Routes>
     </>
   )
 }
