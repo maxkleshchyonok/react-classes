@@ -11,13 +11,24 @@ export async function fetchCharactersByPage(page: number) {
   }
 }
 
-export async function getAllPagesNumber() {
+export async function getAllPagesNumber(endpoint: string): Promise<number> {
   try {
     const response = await axios.get(
-      'https://rickandmortyapi.com/api/character'
+      `https://rickandmortyapi.com/api/${endpoint}`
     )
     return response.data.info.pages
   } catch (error) {
     throw new Error('Error loading pages number')
+  }
+}
+
+export async function getLocationsByPage(page: number | undefined) {
+  try {
+    const response = await axios.get(
+      `https://rickandmortyapi.com/api/location/?page=${page}`
+    )
+    return response
+  } catch (error) {
+    throw new Error('Error loading characters')
   }
 }

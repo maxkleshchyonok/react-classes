@@ -43,7 +43,7 @@ class RickAndMortyCharacters extends Component<object, RickMortyState> {
 
   async componentDidMount() {
     try {
-      const allPages = await getAllPagesNumber()
+      const allPages = await getAllPagesNumber('character')
       const characters = await fetchCharactersByPage(this.state.page)
       this.setState({
         characters,

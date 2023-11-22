@@ -6,6 +6,10 @@ export interface RickMortyState {
   error: string | null
 }
 
+export interface ChangePage {
+  (updatedPage: number): void
+}
+
 export type Characters = {
   info: Info
   results: Character[]
@@ -36,6 +40,11 @@ export type Info = {
 export type Location = {
   name: string
   url: string
+  id?: number
+  type?: string
+  dimension?: string
+  residents?: string[]
+  created?: string
 }
 
 export type Origin = {
@@ -43,6 +52,7 @@ export type Origin = {
   url: string
 }
 
-export interface ChangePage {
-  (updatedPage: number): void
+export type Locations = {
+  info: Info
+  results: Location[]
 }
