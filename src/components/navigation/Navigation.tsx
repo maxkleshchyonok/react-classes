@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
+import './style.scss'
 
 const Navigation = () => {
   return (
-    <nav>
+    <nav className="navigation">
       <ul>
         <li>
           <Link to="/">Main</Link>

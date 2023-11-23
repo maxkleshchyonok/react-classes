@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { getAllPagesNumber, getLocationsByPage } from '../../axios.client'
 import { Location } from '../utils/types'
 import BasicPagination from '../../components/pagination/Pagination'
+import './locations.scss'
 
 const LocationsComponent = () => {
   const [page, setPage] = useState<number | undefined>(1)
@@ -23,14 +24,18 @@ const LocationsComponent = () => {
   }
 
   return (
-    <div>
-      <h2>locations list</h2>
+    <div className="locations">
+      <h1>locations list</h1>
       <BasicPagination count={allPages} callback={changePage} />
       <h3>Current page is {page}</h3>
-      <ul>
+      <ul className="locations--list">
         {locations ? (
           locations.map((el) => {
-            return <li key={el.id}>{el.name}</li>
+            return (
+              <li key={el.id}>
+                Location: {el.name} Created at: {el.created}
+              </li>
+            )
           })
         ) : (
           <div>Loading...</div>

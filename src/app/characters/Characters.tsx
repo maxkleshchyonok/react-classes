@@ -1,32 +1,8 @@
-// const Characters = () => {
-//   return (
-//     <div>
-//       <h2>characters list</h2>
-//     </div>
-//   )
-// }
-
-// export default Characters
-
-// import React from 'react';
-
-// class Characters extends React.Component {
-
-//   render() {
-//     return (
-//       <div>
-//         <h2>characters list</h2>
-//       </div>
-//     );
-//   }
-// }
-
-// export default Characters;
-
 import { Component } from 'react'
 import { RickMortyState } from '../utils/types'
 import BasicPagination from '../../components/pagination/Pagination'
 import { fetchCharactersByPage, getAllPagesNumber } from '../../axios.client'
+import './characters.scss'
 
 class RickAndMortyCharacters extends Component<object, RickMortyState> {
   constructor(props: object) {
@@ -93,11 +69,11 @@ class RickAndMortyCharacters extends Component<object, RickMortyState> {
     }
 
     return (
-      <div>
+      <div className="characters">
         <h1>Rick and Morty Characters</h1>
         <BasicPagination count={allPages} callback={this.changePage} />
         <h3>Current page is: {page}</h3>
-        <ul>
+        <ul className="characters--list">
           {characters.map((character) => (
             <li key={character.id}>
               <img src={character.image} alt={character.name} />
